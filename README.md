@@ -1,1 +1,1 @@
-# mano176.github.io
+# GitHub IO repository for manoel-schürmeier.de
