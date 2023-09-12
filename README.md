@@ -1,1 +1,1 @@
-# GitHub IO repository for manoel-schürmeier.de
+# GitHub IO repository for manoel-schuermeier.de
