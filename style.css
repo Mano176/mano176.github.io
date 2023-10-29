@@ -1,0 +1,129 @@
+body {
+  margin: 0;
+  background: url(res/grain.svg), radial-gradient(#1c1c30, black);
+  color: white;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: stretch;
+  text-align: center;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  color: hotpink;
+}
+
+h1 {
+  filter: drop-shadow(0 0 5px grey);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f100;
+}
+::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hotpink;
+}
+
+.scroller {
+  height: 100vh;
+  padding: 1em;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+section {
+  display: flex;
+  height: 100vh;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroller section {
+  scroll-snap-align: start;
+}
+
+.iconButton:hover {
+  filter: drop-shadow(0px 0px 2.5px white);
+}
+
+/* Projects */
+
+.githubelement {
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: start;
+}
+
+.githubelement.left {
+  align-items: flex-start;
+}
+
+.githubelement.right {
+  align-items: flex-end;
+}
+
+.screenshotContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  max-width: 40vw;
+  margin: 2em 0 2em 0;
+  padding: 2em;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+
+.screenshot {
+  object-fit: contain;
+  filter: drop-shadow(0px 0px 2px white);
+  position: relative;
+  height: 100%;
+  margin: 1em;
+}
+
+/* Background */
+
+#background {
+  z-index: -1;
+}
+
+.snowflake {
+  width: var(--size);
+  height: var(--size);
+  background: grey;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+}
+
+.snowflake:nth-child(3n) {
+  filter: blur(1px);
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translate3d(var(--left-ini), -5vh, 0);
+  }
+  100% {
+    transform: translate3d(var(--left-end), 100vh, 0);
+  }
+}

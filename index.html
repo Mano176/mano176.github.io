@@ -3,8 +3,39 @@
     <head>
         <meta charset="utf-8">
         <title>Manoel Schürmeier</title>
+        <link rel="icon" type="image/x-icon" href="/res/favicon.svg">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=JetBrains+Mono">
+        <style>
+            body {
+                font-family: "JetBrains Mono", "sans-serif";
+            }
+        </style>
+        <link rel="stylesheet" href="style.css">
+        <script src="main.js"></script> 
+        <script src="https://unpkg.com/markdown-it@8.4.2/dist/markdown-it.min.js"></script>
     </head>
-    <body style="height: 100vh; padding: 0; margin: 0;">
-        <h1 style="height: 100%; display: flex; align-items: center; justify-content: center; margin: 0;">Coming soon...</h1>
+    <body>
+        <div id="content" class="scroller" onscroll="scrollFunction()">
+            <section style="text-align: center;">
+                <h1 id="AboutMe">About Me</h1>
+                <p>
+                    Hey! I'm <b>Manoel</b> and I like coding :) <br>
+                    I am currently <span id="agePlaceholder">[age]</span> years old and I live in <b>Bielefeld</b>, Germany <br>
+                    I mostly do stuff in <b>Python</b>, <b>Flutter</b> or <b>Java</b> and sometimes JavaScript, HTML and CSS <br>
+                    I am currently studying <b>Computer Science</b> at the <b>University of Bielefeld</b> <br>
+                    <script>replaceAge();</script>
+                </p>
+                <div>
+                    <a href="https://github.com/Mano176" target="_blank" rel="noreferrer noopener"><img src="/res/socials/github.svg" alt="GitHub Logo" width="50px" height="50px" class="iconButton"></a>
+                    <a href="https://play.google.com/store/apps/developer?id=Manoel+Sch&uuml;rmeier" target="_blank" rel="noreferrer noopener"><img src="/res/socials/playstore.svg" alt="Playstore Logo" width="50px" height="50px" class="iconButton"></a>
+                    <a href="https://www.linkedin.com/in/manoel-sch&uuml;rmeier-587001296" target="_blank" rel="noreferrer noopener"><img src="/res/socials/linkedin.svg" alt="Linkedin Logo" width="50px" height="50px" class="iconButton"></a>
+                </div>
+            </section>
+            <script>loadRepos()</script>
+        </div>
+        <a href="/#AboutMe" style="position: fixed; right: 50px; bottom: 25px; display: none;" id="scrollToTopButton"><img src="/res/arrow_up.svg" alt="arrow up" width="50px" height="50px" class="iconButton"></a>
+        <div id="background">
+            <script>initBackground()</script>
+        </div>
     </body>
 </html>
