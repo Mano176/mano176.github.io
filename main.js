@@ -48,15 +48,16 @@ function replaceAge() {
 
 function initBackground() {
     const backgroundDiv = document.getElementById("background")
-    for (var i = 0; i < 200; i++) {
+    const num_snowflakes = document.documentElement.clientWidth*document.documentElement.clientHeight*0.0001;
+    console.log(num_snowflakes);
+    for (var i = 0; i < num_snowflakes; i++) {
         const snowflake = document.createElement("div")
-
         snowflake.style.setProperty("--size", Math.random()*0.5 + "vw")
         snowflake.style.setProperty("--left-ini", Math.random() * 20 - 10+"vw")
         snowflake.style.setProperty("--left-end", Math.random() * 20 - 10+"vw")
         snowflake.style.left = Math.random() * 100 + "vw";
-        snowflake.style.animation = "snowfall " + (Math.random() * 50 + 5) + "s linear infinite";
-        snowflake.style.animationDelay = -Math.random() * 200 + "s";
+        snowflake.style.animation = "snowfall " + (Math.random() * 200 + 5) + "s linear infinite";
+        snowflake.style.animationDelay = -Math.random() * num_snowflakes + "s";
 
         snowflake.classList.add("snowflake")
         backgroundDiv.appendChild(snowflake)
@@ -74,7 +75,6 @@ function scrollFunction() {
 }
 
 window.addEventListener("resize", () => {
-    console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
     if (document.documentElement.clientWidth < document.documentElement.clientHeight) {
         document.body.classList.add("mobile")
     } else {
