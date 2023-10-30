@@ -17,7 +17,7 @@ async function loadRepos() {
         imagesDiv.classList.add("screenshotContainer")
         var images = markdown.split("[//]: <> (images_start)")[1].split("[//]: <> (images_end)")[0]
         images = images.replaceAll("src=\"", "src=\""+githubURL+repos[i]+"/main/")
-        images = images.replaceAll("width=\"300\"", "")
+        images = images.replaceAll(/width="\d*"/g, "")
         images = parser.parseFromString(images, "text/html").getElementsByTagName("img")
         // elements automatically get deleted from images (see: https://stackoverflow.com/questions/15562484/strange-behavior-when-iterating-over-htmlcollection-from-getelementsbyclassname)
         while (images.length) {
@@ -34,7 +34,6 @@ async function loadRepos() {
         parent.appendChild(section)
     }
 }
-
 
 function replaceAge() {
     const today = new Date();
@@ -73,3 +72,12 @@ function scrollFunction() {
         scrollToTopButton.style.display = "none";
     }
 }
+
+window.addEventListener("resize", () => {
+    console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
+    if (document.documentElement.clientWidth < document.documentElement.clientHeight) {
+        document.body.classList.add("mobile")
+    } else {
+        document.body.classList.remove("mobile")
+    }
+});
